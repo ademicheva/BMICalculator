@@ -40,9 +40,9 @@ class ViewController: UIViewController {
         
         heightTextField.floatingLabelActiveTextColor = UIColor(named: "mintColor")
         heightTextField.floatingLabelYPadding = -10
-        
-        
-        
+//        
+//        
+//        
         weightTextField.floatingLabelActiveTextColor = UIColor(named: "mintColor")
         weightTextField.floatingLabelYPadding = -10
         
@@ -79,13 +79,7 @@ class ViewController: UIViewController {
         weightTextField.addUnderLine(color: UIColor(named: "greyTF")!)
     }
     
-//    @IBAction func weightOnClick(_ sender: JVFloatLabeledTextField) {
-//        weightTextField.addUnderLine(color: UIColor(named: "mintColor")!)
-//    }
-//    
-//    @IBAction func weightOffClick(_ sender: JVFloatLabeledTextField) {
-//        weightTextField.addUnderLine(color: UIColor(named: "greyTF")!)
-//    }
+
     
     
     
