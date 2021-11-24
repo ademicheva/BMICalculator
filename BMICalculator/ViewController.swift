@@ -7,11 +7,14 @@
 
 import UIKit
 import JVFloatLabeledTextField
+import LMGaugeViewSwift
 
 class ViewController: UIViewController {
     
 //    let mintColor = UIColor(named: "mintTF")
 
+    
+    
     @IBOutlet weak var ageTextField: JVFloatLabeledTextField!
     @IBOutlet weak var heightTextField: JVFloatLabeledTextField!
     
@@ -24,6 +27,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var manBtn: UIButton!
     
+    @IBOutlet weak var gaugeControl: GaugeView!
     
     
     
@@ -64,6 +68,10 @@ class ViewController: UIViewController {
      //   manBtn.backgroundColor = .white
         manBtn.tintColor = UIColor(named: "greyTF")
      
+        
+        
+        
+        
         
         
 //        let origImag = genderControl.imageForSegment(at: 0)
