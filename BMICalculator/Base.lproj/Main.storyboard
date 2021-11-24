@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PLc-df-0jG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                <rect key="frame" x="13" y="0.0" width="375" height="900"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Возраст" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Clb-Th-CUK" customClass="JVFloatLabeledTextField">
                                         <rect key="frame" x="32" y="40" width="90" height="34"/>
@@ -63,6 +63,23 @@
                                             <action selector="weightOnCLick:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="Avw-5T-sYC"/>
                                         </connections>
                                     </textField>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kE1-6c-b5d">
+                                        <rect key="frame" x="39" y="89" width="76" height="61"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H41-PY-SOl">
+                                                <rect key="frame" x="8" y="0.0" width="29" height="56"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" backgroundImage="woman-1"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sop-Zm-vOb">
+                                                <rect key="frame" x="38" y="0.0" width="30" height="56"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" backgroundImage="manC2"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
                                 </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="3oJ-iA-Nq1"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="ICN-5g-3c0"/>
@@ -84,7 +101,9 @@
                         <outlet property="cmLabel" destination="yZ9-cx-pzh" id="59r-MG-2tI"/>
                         <outlet property="heightTextField" destination="JNN-tT-bKQ" id="Sjf-T3-qNo"/>
                         <outlet property="kgLabel" destination="XaS-53-k1J" id="lIK-Sx-i4G"/>
+                        <outlet property="manBtn" destination="sop-Zm-vOb" id="oOD-eD-oas"/>
                         <outlet property="weightTextField" destination="Rjs-cd-2eX" id="ehA-33-dJk"/>
+                        <outlet property="womanBtn" destination="H41-PY-SOl" id="A70-wc-ALx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -122,6 +141,8 @@
         </designable>
     </designables>
     <resources>
+        <image name="manC2" width="480.5" height="905.5"/>
+        <image name="woman-1" width="277.5" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

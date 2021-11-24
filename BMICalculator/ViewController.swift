@@ -17,11 +17,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var weightTextField: JVFloatLabeledTextField!
     
-    
-    
-    
     @IBOutlet weak var cmLabel: UILabel!
     @IBOutlet weak var kgLabel: UILabel!
+    
+    @IBOutlet weak var womanBtn: UIButton!
+    
+    @IBOutlet weak var manBtn: UIButton!
+    
+    
     
     
  //   ageTextField
@@ -46,10 +49,38 @@ class ViewController: UIViewController {
         weightTextField.floatingLabelActiveTextColor = UIColor(named: "mintColor")
         weightTextField.floatingLabelYPadding = -10
         
+//        womanBtn.tintColor = .red
+//        manBtn.backgroundColor = .blue
 
-
+        let origImage = UIImage(named: "woman-1")
+        let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
+        womanBtn.setImage(tintedImage, for: .normal)
+      //  womanBtn.backgroundColor = .white
+        womanBtn.tintColor = UIColor(named: "mintColor")
+//
+        let origImage1 = UIImage(named: "manC2")
+        let tintedImage1 = origImage1?.withRenderingMode(.alwaysTemplate)
+        manBtn.setImage(tintedImage1, for: .normal)
+     //   manBtn.backgroundColor = .white
+        manBtn.tintColor = UIColor(named: "greyTF")
+     
         
         
+//        let origImag = genderControl.imageForSegment(at: 0)
+//  //      let tintedImage1 = origImag?.withRenderingMode(.alwaysTemplate)
+//        genderControl.setImage(origImag, forSegmentAt: 0)
+//    //    btnWoman.setImage(tintedImage, for: .normal)
+//        genderControl.tintColor = .white
+//
+//
+//
+//
+//        ////       UIButton Right Border
+                let lineView = UIView(frame: CGRect(x: womanBtn.frame.size.width, y: 0, width: 2, height: womanBtn.frame.size.height))
+                lineView.backgroundColor = UIColor(named: "greyTF")
+//
+//
+        womanBtn.addSubview(lineView)
     }
 
 
