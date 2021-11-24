@@ -8,8 +8,19 @@
 import UIKit
 import JVFloatLabeledTextField
 import LMGaugeViewSwift
-
-class ViewController: UIViewController {
+//GaugeViewDelegate
+class ViewController: UIViewController  {
+//    func ringStokeColor(gaugeView: GaugeView, value: Double) -> UIColor {
+//        if value == 0   {
+//            return .systemGray
+//        } else if value > 0 && value <= 30 {
+//            return .systemBlue
+//        } else if value >= 31 && value <= 50 {
+//            return .systemGreen
+//        } else {
+//            return . red
+//        }
+//    }
     
 //    let mintColor = UIColor(named: "mintTF")
 
@@ -29,7 +40,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var gaugeControl: GaugeView!
     
-    
+ //   gaugeControl.delegate = self
     
  //   ageTextField
     
@@ -37,6 +48,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gaugeControl.delegate = self
         ageTextField.addUnderLine(color: UIColor(named: "greyTF")!)
         heightTextField.addUnderLine(color: UIColor(named: "greyTF")!)
         weightTextField.addUnderLine(color: UIColor(named: "greyTF")!)
@@ -74,6 +86,7 @@ class ViewController: UIViewController {
         
         
         
+        
 //        let origImag = genderControl.imageForSegment(at: 0)
 //  //      let tintedImage1 = origImag?.withRenderingMode(.alwaysTemplate)
 //        genderControl.setImage(origImag, forSegmentAt: 0)
@@ -89,6 +102,23 @@ class ViewController: UIViewController {
 //
 //
         womanBtn.addSubview(lineView)
+        
+        
+        gaugeControl.minValue = 0
+        gaugeControl.maxValue = 100
+        gaugeControl.limitValue = 30
+        gaugeControl.showMinMaxValue = false
+        
+        gaugeControl.value = 20
+        gaugeControl.ringBackgroundColor = .systemGray // разница
+        gaugeControl.tintColor = .systemPink
+        gaugeControl.limitDotColor = .purple
+        
+        
+        gaugeControl.unitOfMeasurement = "ИМТ"
+        
+        
+        
     }
 
 
@@ -118,6 +148,11 @@ class ViewController: UIViewController {
         weightTextField.addUnderLine(color: UIColor(named: "greyTF")!)
     }
     
+    
+    // MARK: Gauge control functionality
+    
+  //  gaugeControl.delegate = self
+ 
 
     
     
@@ -145,4 +180,19 @@ extension JVFloatLabeledTextField {
     
 
 
+}
+
+//
+extension  ViewController:  GaugeViewDelegate {
+    func ringStokeColor(gaugeView: GaugeView, value: Double) -> UIColor {
+        if value == 0   {
+            return .systemGray
+        } else if value > 0 && value <= 30 {
+            return .systemBlue
+        } else if value >= 31 && value <= 50 {
+            return .systemGreen
+        } else {
+            return . red
+        }
+    }
 }
