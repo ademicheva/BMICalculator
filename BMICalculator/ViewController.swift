@@ -9,21 +9,23 @@ import UIKit
 import JVFloatLabeledTextField
 import LMGaugeViewSwift
 //GaugeViewDelegate
-class ViewController: UIViewController  {
-//    func ringStokeColor(gaugeView: GaugeView, value: Double) -> UIColor {
-//        if value == 0   {
-//            return .systemGray
-//        } else if value > 0 && value <= 30 {
-//            return .systemBlue
-//        } else if value >= 31 && value <= 50 {
-//            return .systemGreen
-//        } else {
-//            return . red
-//        }
-//    }
-    
-//    let mintColor = UIColor(named: "mintTF")
-
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    let imageNameArray = ["Очень серьезный недостаток веса",
+                            "Серьезный недостаток веса",
+                            "Недостаток веса",
+                            "Норм.вес",
+                            "Избыточный вес",
+                            "Ожирение Класс I",
+                            "Ожирение Класс II",
+                            "Ожирение Класс III"]
+    let indexArray = ["< 16.0",
+                    "16.0 - 16.9",
+                    "17.0 - 18.4",
+                    "18.5 - 24.9",
+                    "25.0 - 29.9",
+                    "30.0 - 34.9",
+                    "35.0 - 39.9",
+                    ">= 40.0"]
     
     
     @IBOutlet weak var ageTextField: JVFloatLabeledTextField!
@@ -35,10 +37,17 @@ class ViewController: UIViewController  {
     @IBOutlet weak var kgLabel: UILabel!
     
     @IBOutlet weak var womanBtn: UIButton!
-    
     @IBOutlet weak var manBtn: UIButton!
     
     @IBOutlet weak var gaugeControl: GaugeView!
+    
+//    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var tableView: UITableView!
+    let a = 5
+    
+    
+    
     
  //   gaugeControl.delegate = self
     
@@ -48,6 +57,9 @@ class ViewController: UIViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         gaugeControl.delegate = self
         ageTextField.addUnderLine(color: UIColor(named: "greyTF")!)
         heightTextField.addUnderLine(color: UIColor(named: "greyTF")!)
@@ -100,6 +112,10 @@ class ViewController: UIViewController  {
                 let lineView = UIView(frame: CGRect(x: womanBtn.frame.size.width, y: 0, width: 2, height: womanBtn.frame.size.height))
                 lineView.backgroundColor = UIColor(named: "greyTF")
 //
+        
+        
+        
+        
 //
         womanBtn.addSubview(lineView)
         
@@ -118,6 +134,19 @@ class ViewController: UIViewController  {
         gaugeControl.unitOfMeasurement = "ИМТ"
         
         
+        
+        
+//        tableView.delegate = self
+//        tableView.dataSource = self
+        tableView.separatorColor = .white // цвет границ
+
+        
+
+        if a == 5 {
+            let indexPath = IndexPath(row: 1, section: 0)
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
+            tableView.allowsSelection = false
+        }
         
     }
 
@@ -153,7 +182,24 @@ class ViewController: UIViewController  {
     
   //  gaugeControl.delegate = self
  
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return imageNameArray.count
+    }
 
+    
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyTableViewCell", for: indexPath) as! MyTableViewCell
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .white
+
+
+        cell.selectedBackgroundView = backgroundView
+        cell.textItem.text = imageNameArray[indexPath.row]
+        cell.indexItem.text = indexArray[indexPath.row]
+        cell.textItem.highlightedTextColor = UIColor(named: "blueColor")
+        cell.indexItem.highlightedTextColor = UIColor(named: "blueColor")
+        return cell
+    }
     
     
     
